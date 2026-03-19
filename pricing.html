@@ -3,30 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio — Dadris Designers</title>
+  <title>About Us — Dadris Designers</title>
   <link rel="stylesheet" href="css/style.css" />
   <link rel="icon" href="images/logo.jpg" type="image/jpeg" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
-    .portfolio-full-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(300px,1fr)); gap: 24px; }
-    .portfolio-item { border-radius: var(--radius-lg); overflow: hidden; position: relative; cursor: pointer; aspect-ratio: 4/3; }
-    .portfolio-placeholder { width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;transition:transform 0.4s ease; }
-    .portfolio-item:hover .portfolio-placeholder { transform: scale(1.05); }
-    .p-emoji { font-size: 3.5rem; }
-    .p-label { font-size: 0.85rem; font-weight: 700; color: var(--gray-600); }
-
-    /* Lightbox */
-    .lightbox { display:none;position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:2000;align-items:center;justify-content:center; }
-    .lightbox.open { display:flex; }
-    .lightbox-inner { background:#fff;border-radius:var(--radius-lg);max-width:700px;width:90%;overflow:hidden; }
-    .lightbox-header { display:flex;justify-content:space-between;align-items:center;padding:20px 24px;border-bottom:1px solid var(--gray-200); }
-    .lightbox-header h3 { font-size:1.1rem; }
-    .lightbox-close { font-size:1.5rem;cursor:pointer;color:var(--gray-600);background:none;border:none; }
-    .lightbox-body { padding:24px; }
-    .lightbox-img { width:100%;aspect-ratio:16/9;border-radius:var(--radius);object-fit:cover;background:var(--gray-100);display:flex;align-items:center;justify-content:center;font-size:5rem; }
-    .lightbox-meta { margin-top:16px;display:flex;gap:12px;flex-wrap:wrap; }
-    .meta-tag { background:var(--gray-100);padding:6px 14px;border-radius:50px;font-size:0.8rem;font-weight:600; }
-    .meta-tag.green { background:rgba(26,140,46,0.1);color:var(--green); }
+    .team-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); gap: 28px; }
+    .team-card { background:#fff; border-radius:var(--radius-lg); overflow:hidden; text-align:center; border:1px solid var(--gray-200); transition:var(--transition); }
+    .team-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-md); }
+    .team-avatar { height:200px; background:linear-gradient(135deg,var(--green),#0d4f1f); display:flex; align-items:center; justify-content:center; font-size:4rem; }
+    .team-info { padding:24px; }
+    .team-info h3 { margin-bottom:4px; }
+    .team-info .role { color:var(--green); font-size:0.82rem; font-weight:600; text-transform:uppercase; letter-spacing:1px; margin-bottom:10px; }
+    .team-info p { font-size:0.85rem; color:var(--gray-600); }
+    .milestones { display:grid; grid-template-columns:repeat(4,1fr); gap:24px; }
+    @media(max-width:768px){.milestones{grid-template-columns:repeat(2,1fr);}}
+    @media(max-width:480px){.milestones{grid-template-columns:1fr 1fr;}}
+    .milestone { text-align:center; padding:32px 20px; background:#fff; border-radius:var(--radius-lg); border:1px solid var(--gray-200); }
+    .milestone .num { font-family:'Bebas Neue',sans-serif; font-size:3rem; color:var(--green); line-height:1; }
+    .milestone .label { font-size:0.85rem; color:var(--gray-600); font-weight:600; margin-top:6px; }
   </style>
 </head>
 <body>
@@ -42,9 +37,9 @@
       </a>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
+        <li><a href="about.html" class="active">About</a></li>
         <li><a href="services.html">Services</a></li>
-        <li><a href="portfolio.html" class="active">Portfolio</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
         <li><a href="pricing.html">Pricing</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
@@ -63,163 +58,150 @@
     <a href="client-portal/login.html" class="btn btn-primary">Client Login</a>
   </div>
 
+  <!-- Page Banner -->
   <div class="page-banner">
     <div class="page-banner-content">
-      <div class="tag">Our Work</div>
-      <h1>Portfolio</h1>
-      <p>A showcase of designs we've created for clients across Kenya and beyond.</p>
+      <div class="tag">Our Story</div>
+      <h1>About Dadris Designers</h1>
+      <p>A passionate creative studio dedicated to bringing your brand vision to life through powerful design.</p>
       <div class="breadcrumb">
-        <a href="index.html">Home</a> <span>›</span> <span>Portfolio</span>
+        <a href="index.html">Home</a> <span>›</span> <span>About</span>
       </div>
     </div>
   </div>
 
-  <section class="section portfolio">
+  <!-- About Section -->
+  <section class="section">
     <div class="container">
-      <div class="portfolio-filters fade-up">
-        <button class="filter-btn active" data-filter="all">All Work</button>
-        <button class="filter-btn" data-filter="logo">Logo Design</button>
-        <button class="filter-btn" data-filter="graphic">Graphic Design</button>
-        <button class="filter-btn" data-filter="web">Web Design</button>
-        <button class="filter-btn" data-filter="branding">Branding</button>
-        <button class="filter-btn" data-filter="social">Social Media</button>
+      <div class="about-grid">
+        <div class="about-visual fade-up">
+          <div class="about-img-wrap">
+            <img src="images/logo.jpg" alt="Dadris Designers" />
+          </div>
+          <div class="about-badge-float">
+            <div class="num">5★</div>
+            <div class="txt">Client Rating</div>
+          </div>
+        </div>
+        <div class="about-content fade-up">
+          <div class="tag">Who We Are</div>
+          <h2>Creative Minds Behind <span>Great Brands</span></h2>
+          <p>
+            Dadris Designers is a Kenya-based creative design studio committed to helping businesses of all sizes
+            look professional, credible, and memorable. We believe every business deserves great design — and
+            that design is not just about how things look, but how they work and how they make people feel.
+          </p>
+          <p>
+            From startups to established companies, we've helped over 80 clients across Kenya and beyond build
+            brands that stand out. Whether you need a simple logo or a complete web presence, we bring the same
+            level of passion and professionalism to every project.
+          </p>
+          <div class="about-values">
+            <div class="value-item">
+              <div class="value-icon">🎯</div>
+              <div>
+                <h4>Purpose-Driven</h4>
+                <p>Every design decision serves your goals.</p>
+              </div>
+            </div>
+            <div class="value-item">
+              <div class="value-icon">⚡</div>
+              <div>
+                <h4>Fast & Reliable</h4>
+                <p>We deliver on time, every time.</p>
+              </div>
+            </div>
+            <div class="value-item">
+              <div class="value-icon">💡</div>
+              <div>
+                <h4>Creative First</h4>
+                <p>Fresh ideas tailored to your brand.</p>
+              </div>
+            </div>
+            <div class="value-item">
+              <div class="value-icon">🤝</div>
+              <div>
+                <h4>Client-Focused</h4>
+                <p>Your satisfaction is our priority.</p>
+              </div>
+            </div>
+          </div>
+          <div style="margin-top:32px;">
+            <a href="contact.html" class="btn btn-primary">
+              <i class="fas fa-paper-plane"></i> Work With Us
+            </a>
+          </div>
+        </div>
       </div>
-
-      <div class="portfolio-full-grid" id="portfolioGrid">
-
-        <div class="portfolio-item fade-up" data-category="logo" onclick="openLightbox('Tech Startup Logo','logo','A clean, modern logo designed for a Nairobi tech startup. Featured bold typography with an abstract icon.')">
-          <div class="portfolio-placeholder" style="background:linear-gradient(135deg,#e8f5e9,#c8e6c9);">
-            <span class="p-emoji">✏️</span>
-            <span class="p-label">Tech Startup Logo</span>
-          </div>
-          <div class="portfolio-overlay">
-            <h3>Tech Startup Logo</h3>
-            <span>Logo Design</span>
-          </div>
-        </div>
-
-        <div class="portfolio-item fade-up" data-category="web" onclick="openLightbox('Business Website','web','A fully responsive 5-page business website built for a Nairobi consultancy firm.')">
-          <div class="portfolio-placeholder" style="background:linear-gradient(135deg,#e3f2fd,#bbdefb);">
-            <span class="p-emoji">💻</span>
-            <span class="p-label">Business Website</span>
-          </div>
-          <div class="portfolio-overlay">
-            <h3>Business Website</h3>
-            <span>Web Design</span>
-          </div>
-        </div>
-
-        <div class="portfolio-item fade-up" data-category="graphic" onclick="openLightbox('Event Flyer Design','graphic','Vibrant event flyer for a corporate gala night. Bold colors, dynamic layout, high visual impact.')">
-          <div class="portfolio-placeholder" style="background:linear-gradient(135deg,#fce4ec,#f8bbd9);">
-            <span class="p-emoji">🎪</span>
-            <span class="p-label">Event Flyer</span>
-          </div>
-          <div class="portfolio-overlay">
-            <h3>Event Flyer Design</h3>
-            <span>Graphic Design</span>
-          </div>
-        </div>
-
-        <div class="portfolio-item fade-up" data-category="branding" onclick="openLightbox('Restaurant Branding','branding','Complete brand identity for a Nairobi restaurant — logo, menu, packaging, and social media kit.')">
-          <div class="portfolio-placeholder" style="background:linear-gradient(135deg,#fff8e1,#ffe082);">
-            <span class="p-emoji">🍽️</span>
-            <span class="p-label">Restaurant Branding</span>
-          </div>
-          <div class="portfolio-overlay">
-            <h3>Restaurant Branding</h3>
-            <span>Full Branding</span>
-          </div>
-        </div>
-
-        <div class="portfolio-item fade-up" data-category="social" onclick="openLightbox('Social Media Pack','social','30-day social media content pack for a fashion brand. Reels covers, posts, and stories.')">
-          <div class="portfolio-placeholder" style="background:linear-gradient(135deg,#f3e5f5,#e1bee7);">
-            <span class="p-emoji">📱</span>
-            <span class="p-label">Social Media Pack</span>
-          </div>
-          <div class="portfolio-overlay">
-            <h3>Social Media Pack</h3>
-            <span>Social Media Design</span>
-          </div>
-        </div>
-
-        <div class="portfolio-item fade-up" data-category="logo" onclick="openLightbox('Beauty Salon Logo','logo','Elegant and feminine logo for a beauty salon. Soft colors with a leaf motif.')">
-          <div class="portfolio-placeholder" style="background:linear-gradient(135deg,#e0f7fa,#b2ebf2);">
-            <span class="p-emoji">💅</span>
-            <span class="p-label">Beauty Salon Logo</span>
-          </div>
-          <div class="portfolio-overlay">
-            <h3>Beauty Salon Logo</h3>
-            <span>Logo Design</span>
-          </div>
-        </div>
-
-        <div class="portfolio-item fade-up" data-category="graphic" onclick="openLightbox('Product Catalogue','graphic','12-page product catalogue for a FMCG company. Clean grid layout with professional photography styling.')">
-          <div class="portfolio-placeholder" style="background:linear-gradient(135deg,#e8eaf6,#c5cae9);">
-            <span class="p-emoji">📚</span>
-            <span class="p-label">Product Catalogue</span>
-          </div>
-          <div class="portfolio-overlay">
-            <h3>Product Catalogue</h3>
-            <span>Graphic Design</span>
-          </div>
-        </div>
-
-        <div class="portfolio-item fade-up" data-category="web" onclick="openLightbox('E-Commerce Store','web','WooCommerce online store for a fashion retailer. Mobile-first, fast, and conversion optimized.')">
-          <div class="portfolio-placeholder" style="background:linear-gradient(135deg,#f1f8e9,#dcedc8);">
-            <span class="p-emoji">🛒</span>
-            <span class="p-label">E-Commerce Store</span>
-          </div>
-          <div class="portfolio-overlay">
-            <h3>E-Commerce Store</h3>
-            <span>Web Design</span>
-          </div>
-        </div>
-
-        <div class="portfolio-item fade-up" data-category="branding" onclick="openLightbox('Fintech Branding','branding','Full brand identity for a mobile money startup. Trustworthy yet modern.')">
-          <div class="portfolio-placeholder" style="background:linear-gradient(135deg,#e8f5e9,#a5d6a7);">
-            <span class="p-emoji">💳</span>
-            <span class="p-label">Fintech Branding</span>
-          </div>
-          <div class="portfolio-overlay">
-            <h3>Fintech Branding</h3>
-            <span>Branding & Identity</span>
-          </div>
-        </div>
-
-      </div>
-
-      <div style="text-align:center;margin-top:50px;" class="fade-up">
-        <p style="color:var(--gray-600);margin-bottom:20px;">Want to see your project here? Let's work together.</p>
-        <a href="contact.html" class="btn btn-primary">
-          <i class="fas fa-paper-plane"></i> Start a Project
-        </a>
-      </div>
-
     </div>
   </section>
 
-  <!-- Lightbox -->
-  <div class="lightbox" id="lightbox">
-    <div class="lightbox-inner">
-      <div class="lightbox-header">
-        <h3 id="lbTitle">Project Title</h3>
-        <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <!-- Milestones -->
+  <section class="section" style="background:var(--gray-50);">
+    <div class="container">
+      <div class="section-header fade-up">
+        <div class="tag">Our Numbers</div>
+        <h2>Success in <span>Numbers</span></h2>
       </div>
-      <div class="lightbox-body">
-        <div class="lightbox-img" id="lbImg">🎨</div>
-        <div class="lightbox-meta">
-          <span class="meta-tag green" id="lbCategory">Category</span>
-          <span class="meta-tag">Dadris Designers</span>
-          <span class="meta-tag">Kenya</span>
+      <div class="milestones">
+        <div class="milestone fade-up">
+          <div class="num">150+</div>
+          <div class="label">Projects Completed</div>
         </div>
-        <p id="lbDesc" style="margin-top:16px;color:var(--gray-600);font-size:0.9rem;"></p>
-        <div style="margin-top:20px;">
-          <a href="contact.html" class="btn btn-primary">Order Similar Project</a>
+        <div class="milestone fade-up">
+          <div class="num">80+</div>
+          <div class="label">Happy Clients</div>
+        </div>
+        <div class="milestone fade-up">
+          <div class="num">3+</div>
+          <div class="label">Years Experience</div>
+        </div>
+        <div class="milestone fade-up">
+          <div class="num">5★</div>
+          <div class="label">Average Rating</div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 
+  <!-- Team -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header fade-up">
+        <div class="tag">The Team</div>
+        <h2>Meet the <span>Creatives</span></h2>
+        <p>Talented people who love what they do and do it exceptionally well.</p>
+      </div>
+      <div class="team-grid">
+        <div class="team-card fade-up">
+          <div class="team-avatar">👨‍🎨</div>
+          <div class="team-info">
+            <h3>The Creative Director</h3>
+            <div class="role">Founder & Lead Designer</div>
+            <p>The visionary behind Dadris Designers. Leads every project with passion and precision.</p>
+          </div>
+        </div>
+        <div class="team-card fade-up">
+          <div class="team-avatar" style="background:linear-gradient(135deg,var(--blue),#0d2b6b);">👩‍💻</div>
+          <div class="team-info">
+            <h3>Web Developer</h3>
+            <div class="role">Frontend & UI Developer</div>
+            <p>Turns beautiful designs into fully functional, responsive websites and web apps.</p>
+          </div>
+        </div>
+        <div class="team-card fade-up">
+          <div class="team-avatar" style="background:linear-gradient(135deg,var(--red),#8b0000);">🎬</div>
+          <div class="team-info">
+            <h3>Motion Designer</h3>
+            <div class="role">Social Media & Animation</div>
+            <p>Creates eye-catching social media content, GIFs, and brand animations.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
   <footer>
     <div class="container">
       <div class="footer-grid">
@@ -231,10 +213,11 @@
               <div class="slogan">Designs. Define Dadris</div>
             </div>
           </div>
-          <p>Professional graphic design, logo creation, and web design services across Kenya.</p>
+          <p>We create designs that define brands. Professional graphic design, logo creation, and web design services across Kenya.</p>
           <div class="footer-social">
             <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
             <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
             <a href="https://wa.me/254745365756" class="social-icon"><i class="fab fa-whatsapp"></i></a>
           </div>
         </div>
@@ -249,16 +232,22 @@
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
-        <div class="footer-col"><h4>Services</h4><ul>
-          <li><a href="services.html">Graphic Design</a></li>
-          <li><a href="services.html">Web Design</a></li>
-          <li><a href="services.html">Logo Design</a></li>
-          <li><a href="services.html">Branding</a></li>
-        </ul></div>
-        <div class="footer-col"><h4>Contact</h4><ul>
-          <li><a href="tel:+254745365756">📞 0745 365 756</a></li>
-          <li><a href="mailto:dadrisdesigners@gmail.com">✉️ dadrisdesigners@gmail.com</a></li>
-        </ul></div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="services.html">Graphic Design</a></li>
+            <li><a href="services.html">Web Design</a></li>
+            <li><a href="services.html">Logo Design</a></li>
+            <li><a href="services.html">Branding</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="tel:+254745365756"><i class="fas fa-phone" style="margin-right:8px;color:var(--green-light);"></i>0745 365 756</a></li>
+            <li><a href="mailto:dadrisdesigners@gmail.com"><i class="fas fa-envelope" style="margin-right:8px;color:var(--green-light);"></i>dadrisdesigners@gmail.com</a></li>
+          </ul>
+        </div>
       </div>
       <div class="footer-bottom">
         <p>© 2025 DADRIS DESIGNERS. All rights reserved.</p>
@@ -268,32 +257,15 @@
   </footer>
 
   <div class="floating-buttons">
-    <a href="https://wa.me/254745365756" target="_blank" class="float-btn float-whatsapp">
+    <a href="https://wa.me/254745365756?text=Hello%20Dadris%20Designers!" target="_blank" class="float-btn float-whatsapp">
       <i class="fab fa-whatsapp"></i><span class="tooltip">WhatsApp Us</span>
     </a>
     <a href="tel:+254745365756" class="float-btn float-call">
       <i class="fas fa-phone"></i><span class="tooltip">Call Us</span>
     </a>
   </div>
+
   <div id="toast" class="toast"></div>
   <script src="js/main.js"></script>
-  <script>
-    const catEmojis = { logo:'✏️', web:'💻', graphic:'🎨', branding:'🏷️', social:'📱' };
-    function openLightbox(title, cat, desc) {
-      document.getElementById('lbTitle').textContent = title;
-      document.getElementById('lbCategory').textContent = cat.charAt(0).toUpperCase() + cat.slice(1);
-      document.getElementById('lbDesc').textContent = desc;
-      document.getElementById('lbImg').textContent = catEmojis[cat] || '🎨';
-      document.getElementById('lightbox').classList.add('open');
-      document.body.style.overflow = 'hidden';
-    }
-    function closeLightbox() {
-      document.getElementById('lightbox').classList.remove('open');
-      document.body.style.overflow = '';
-    }
-    document.getElementById('lightbox').addEventListener('click', function(e) {
-      if (e.target === this) closeLightbox();
-    });
-  </script>
 </body>
 </html>
