@@ -1,20 +1,623 @@
-// ============================================
-// DADRIS DESIGNERS — FIREBASE CONFIGURATION
-// ============================================
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { getFirestore } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-import { getAuth } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-const firebaseConfig = {
-  apiKey: "AIzaSyCYcrazrmkXJXaRMBUzTZFBOwS2BUxs3QQ",
-  authDomain: "dadris-designers.firebaseapp.com",
-  projectId: "dadris-designers",
-  storageBucket: "dadris-designers.firebasestorage.app",
-  messagingSenderId: "813719033161",
-  appId: "1:813719033161:web:ee55f44da47a7748793698",
-  measurementId: "G-TZPFR27B3H"
-};
+  <!-- PRIMARY SEO -->
+  <title>Dadris Designers | Graphic & Web Design in Kenya</title>
+  <meta name="description" content="Dadris Designers — Professional logo design, graphic design, web design and branding services in Kenya. Affordable, fast & creative. Call 0745 365 756." />
+  <meta name="keywords" content="graphic designer Kenya, web designer Kenya, logo design Kenya, branding Kenya, flyer design Kenya, Dadris Designers" />
+  <meta name="author" content="Dadris Designers" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://davidmutula840-hash.github.io/dadrisdesignerswebsite/index.html" />
 
-const app = initializeApp(firebaseConfig);
-export const db = getFirestore(app);
-export const auth = getAuth(app);
+  <!-- OPEN GRAPH -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Dadris Designers | Graphic & Web Design in Kenya" />
+  <meta property="og:description" content="Professional logo, graphic & web design services in Kenya. Fast delivery, affordable prices. Contact us today!" />
+  <meta property="og:image" content="https://davidmutula840-hash.github.io/dadrisdesignerswebsite/images/logo.jpg" />
+  <meta property="og:url" content="https://davidmutula840-hash.github.io/dadrisdesignerswebsite/" />
+  <meta property="og:site_name" content="Dadris Designers" />
+
+  <!-- TWITTER CARD -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Dadris Designers | Graphic & Web Design in Kenya" />
+  <meta name="twitter:description" content="Professional logo, graphic & web design in Kenya. Affordable & fast. Call 0745 365 756." />
+  <meta name="twitter:image" content="https://davidmutula840-hash.github.io/dadrisdesignerswebsite/images/logo.jpg" />
+
+  <!-- SCHEMA MARKUP -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Dadris Designers",
+    "description": "Professional graphic design, logo design, web design and branding services in Kenya.",
+    "url": "https://davidmutula840-hash.github.io/dadrisdesignerswebsite/",
+    "telephone": "+254745365756",
+    "email": "dadrisdesigners@gmail.com",
+    "address": { "@type": "PostalAddress", "addressCountry": "KE", "addressRegion": "Kenya" },
+    "openingHours": ["Mo-Sa 08:00-20:00", "Su 10:00-17:00"],
+    "sameAs": ["https://wa.me/254745365756"],
+    "image": "https://davidmutula840-hash.github.io/dadrisdesignerswebsite/images/logo.jpg",
+    "priceRange": "KSh 1,500 - KSh 50,000",
+    "serviceArea": { "@type": "Country", "name": "Kenya" }
+  }
+  </script>
+
+  <!-- PWA HEAD TAGS -->
+  <link rel="manifest" href="/dadrisdesignerswebsite/manifest.json" />
+  <meta name="theme-color" content="#1a8c2e" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Dadris" />
+  <link rel="apple-touch-icon" href="/dadrisdesignerswebsite/images/logo.jpg" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="application-name" content="DADRIS DESIGNERS" />
+  <meta name="msapplication-TileColor" content="#1a8c2e" />
+  <meta name="msapplication-TileImage" content="/dadrisdesignerswebsite/images/logo.jpg" />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="images/logo.jpg" type="image/jpeg" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    /* Home-specific extra styles */
+    .why-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: 24px; }
+    .why-card { text-align: center; padding: 36px 24px; background: #fff; border-radius: var(--radius-lg); border: 1px solid var(--gray-200); transition: var(--transition); }
+    .why-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+    .why-icon { font-size: 2.4rem; margin-bottom: 16px; }
+    .why-card h3 { font-size: 1.05rem; margin-bottom: 8px; }
+    .why-card p { font-size: 0.85rem; color: var(--gray-600); }
+    .cta-band { background: linear-gradient(135deg, var(--green), #0f5c1f); padding: 80px 24px; text-align: center; color: #fff; }
+    .cta-band h2 { color: #fff; margin-bottom: 12px; }
+    .cta-band p  { color: rgba(255,255,255,0.75); max-width: 500px; margin: 0 auto 28px; }
+    .cta-band-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .mini-portfolio-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+    @media(max-width:768px){ .mini-portfolio-grid{ grid-template-columns:1fr 1fr; } }
+    @media(max-width:480px){ .mini-portfolio-grid{ grid-template-columns:1fr; } }
+
+    /* ===== PWA INSTALL BUTTON (navbar) ===== */
+    #pwa-nav-btn {
+      display: none;
+      align-items: center; gap: 7px;
+      background: linear-gradient(135deg, #1a8c2e, #22a838);
+      color: #fff !important; border: none;
+      padding: 9px 18px; border-radius: 50px;
+      font-size: 0.8rem; font-weight: 700;
+      cursor: pointer; font-family: inherit;
+      transition: transform 0.2s, box-shadow 0.2s;
+      white-space: nowrap;
+      animation: pwa-pulse-btn 2.5s infinite;
+    }
+    #pwa-nav-btn:hover { transform: scale(1.05); box-shadow: 0 4px 16px rgba(26,140,46,0.4); animation: none; }
+    @keyframes pwa-pulse-btn {
+      0%,100% { box-shadow: 0 0 0 0 rgba(26,140,46,0.5); }
+      50%      { box-shadow: 0 0 0 8px rgba(26,140,46,0); }
+    }
+
+    /* ===== PWA INSTALL POPUP ===== */
+    #pwa-popup {
+      display: none;
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 99990;
+      background: linear-gradient(135deg, #0a1a0e 0%, #1a3a12 100%);
+      padding: 20px 24px;
+      box-shadow: 0 -6px 32px rgba(0,0,0,0.35);
+      border-top: 2px solid rgba(26,140,46,0.4);
+      animation: pwa-slide-up 0.45s cubic-bezier(.34,1.56,.64,1);
+    }
+    @keyframes pwa-slide-up { from { transform:translateY(100%); opacity:0; } to { transform:translateY(0); opacity:1; } }
+    .pwa-popup-inner { max-width:640px; margin:0 auto; display:flex; align-items:center; gap:16px; }
+    .pwa-popup-icon  { width:52px; height:52px; border-radius:14px; flex-shrink:0; border:2px solid rgba(255,255,255,0.2); overflow:hidden; }
+    .pwa-popup-icon img { width:100%; height:100%; object-fit:cover; }
+    .pwa-popup-text  { flex:1; }
+    .pwa-popup-title { color:#fff; font-weight:700; font-size:0.95rem; margin-bottom:3px; }
+    .pwa-popup-sub   { color:rgba(255,255,255,0.6); font-size:0.78rem; }
+    .pwa-popup-actions { display:flex; gap:10px; flex-shrink:0; }
+    .pwa-install-btn { background:#1a8c2e; color:#fff; border:none; padding:11px 22px; border-radius:50px; font-weight:700; font-size:0.85rem; cursor:pointer; font-family:inherit; white-space:nowrap; }
+    .pwa-install-btn:hover { background:#22a838; }
+    .pwa-dismiss-btn { background:rgba(255,255,255,0.1); color:rgba(255,255,255,0.7); border:1px solid rgba(255,255,255,0.15); padding:11px 16px; border-radius:50px; font-weight:600; font-size:0.82rem; cursor:pointer; font-family:inherit; white-space:nowrap; }
+    .pwa-dismiss-btn:hover { background:rgba(255,255,255,0.2); }
+
+    /* ===== iOS Hint ===== */
+    #pwa-ios-hint {
+      display:none;
+      position:fixed; bottom:20px; left:50%; transform:translateX(-50%);
+      background:rgba(10,26,14,0.97); color:#fff;
+      padding:18px 22px; border-radius:18px; z-index:99990;
+      font-family:inherit; font-size:0.84rem; text-align:center;
+      width:88%; max-width:340px;
+      box-shadow:0 8px 40px rgba(0,0,0,0.45);
+      border:1px solid rgba(26,140,46,0.35);
+      animation:pwa-slide-up 0.4s ease;
+    }
+    #pwa-ios-hint .ios-title { font-weight:700; color:#6ee87b; margin-bottom:8px; font-size:0.9rem; }
+    #pwa-ios-hint .ios-body  { color:rgba(255,255,255,0.75); line-height:1.6; margin-bottom:14px; }
+    #pwa-ios-hint .ios-close { background:#1a8c2e; color:#fff; border:none; padding:9px 24px; border-radius:50px; font-weight:700; font-size:0.8rem; cursor:pointer; font-family:inherit; }
+
+    @media(max-width:600px) {
+      .pwa-popup-inner { flex-wrap:wrap; }
+      .pwa-popup-actions { width:100%; }
+      .pwa-install-btn, .pwa-dismiss-btn { flex:1; text-align:center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ======= NAVBAR ======= -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="images/logo.jpg" alt="Dadris Designers Logo" />
+        <div class="nav-logo-text">
+          <span class="brand">DADRIS DESIGNERS</span>
+          <span class="tagline">Designs. Define Dadris</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <!-- ✅ PWA Install Button — appears automatically when browser is ready -->
+        <button id="pwa-nav-btn" onclick="triggerPWAInstall()">
+          <i class="fas fa-download"></i> Install App
+        </button>
+        <a href="client-portal/login.html" class="btn btn-outline" style="padding:10px 22px;font-size:0.85rem;">Client Login</a>
+        <a href="contact.html" class="btn btn-primary" style="padding:10px 22px;font-size:0.85rem;">Get a Quote</a>
+      </div>
+      <div class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <span class="mobile-close" id="mobileClose">✕</span>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="contact.html">Contact</a>
+    <a href="client-portal/login.html" class="btn btn-primary">Client Login</a>
+    <!-- ✅ Install button in mobile menu -->
+    <button id="pwa-mobile-btn" onclick="triggerPWAInstall()" style="display:none;width:100%;margin-top:8px;background:linear-gradient(135deg,#1a8c2e,#22a838);color:#fff;border:none;padding:14px;border-radius:50px;font-weight:700;font-size:0.9rem;cursor:pointer;font-family:inherit;">
+      <i class="fas fa-download"></i> Install as App
+    </button>
+  </div>
+
+  <!-- ✅ PWA INSTALL POPUP BANNER -->
+  <div id="pwa-popup">
+    <div class="pwa-popup-inner">
+      <div class="pwa-popup-icon">
+        <img src="images/logo.jpg" alt="Dadris" />
+      </div>
+      <div class="pwa-popup-text">
+        <div class="pwa-popup-title">📲 Install DADRIS DESIGNERS</div>
+        <div class="pwa-popup-sub">Add to your home screen — works like a real app, no App Store needed!</div>
+      </div>
+      <div class="pwa-popup-actions">
+        <button class="pwa-install-btn" onclick="triggerPWAInstall()">
+          <i class="fas fa-download"></i> Install Free
+        </button>
+        <button class="pwa-dismiss-btn" onclick="dismissPWAPopup()">Not now</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ✅ iOS SAFARI HINT -->
+  <div id="pwa-ios-hint">
+    <div class="ios-title">📲 Install as App</div>
+    <div class="ios-body">
+      Tap <strong style="color:#fff;">Share</strong> ⬆️ at the bottom of Safari,<br />
+      then tap <strong style="color:#fff;">"Add to Home Screen"</strong> to install DADRIS DESIGNERS.
+    </div>
+    <button class="ios-close" onclick="document.getElementById('pwa-ios-hint').style.display='none'">Got it! 👍</button>
+  </div>
+
+  <!-- ======= HERO ======= -->
+  <section class="hero">
+    <div class="hero-grid-bg"></div>
+    <div class="hero-content">
+      <div class="hero-text">
+        <div class="hero-badge">
+          <span></span> Available for new projects
+        </div>
+        <h1>We Create Designs That <em>Define</em> Your Brand</h1>
+        <p class="hero-desc">
+          Professional graphic design, logos, branding, and web design services.
+          We turn your vision into stunning visuals that make your business unforgettable.
+        </p>
+        <div class="hero-actions">
+          <a href="portfolio.html" class="btn btn-primary">
+            <i class="fas fa-eye"></i> View Our Work
+          </a>
+          <a href="contact.html" class="btn btn-outline" style="border-color:rgba(255,255,255,0.3);color:#fff;">
+            <i class="fas fa-paper-plane"></i> Get a Free Quote
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="num" data-count="150" data-suffix="+">0+</div>
+            <div class="label">Projects Done</div>
+          </div>
+          <div class="hero-stat">
+            <div class="num" data-count="80" data-suffix="+">0+</div>
+            <div class="label">Happy Clients</div>
+          </div>
+          <div class="hero-stat">
+            <div class="num" data-count="5" data-suffix="★">0★</div>
+            <div class="label">Avg. Rating</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-logo-ring">
+          <div class="ring ring-1"></div>
+          <div class="ring ring-2"></div>
+          <div class="ring ring-3"></div>
+          <div class="hero-logo-inner">
+            <img src="images/logo.jpg" alt="Dadris Designers" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= SERVICES PREVIEW ======= -->
+  <section class="section services">
+    <div class="container">
+      <div class="section-header fade-up">
+        <div class="tag">What We Do</div>
+        <h2>Our Creative <span>Services</span></h2>
+        <p>From logos to full websites — we handle every part of your visual identity.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card fade-up">
+          <div class="service-icon" style="background:rgba(26,140,46,0.1);">🎨</div>
+          <h3>Graphic Design</h3>
+          <p>Flyers, posters, banners, social media graphics — all designed to grab attention and communicate your message.</p>
+          <div class="price">From KSh 1,500</div>
+        </div>
+        <div class="service-card fade-up">
+          <div class="service-icon" style="background:rgba(21,101,192,0.1);">💻</div>
+          <h3>Web Design</h3>
+          <p>Beautiful, responsive websites that work perfectly on all devices — from business sites to e-commerce stores.</p>
+          <div class="price">From KSh 15,000</div>
+        </div>
+        <div class="service-card fade-up">
+          <div class="service-icon" style="background:rgba(244,180,0,0.1);">✏️</div>
+          <h3>Logo Design</h3>
+          <p>A professional logo that captures your brand personality and makes you instantly recognizable.</p>
+          <div class="price">From KSh 2,500</div>
+        </div>
+        <div class="service-card fade-up">
+          <div class="service-icon" style="background:rgba(204,31,31,0.1);">🏷️</div>
+          <h3>Branding & Identity</h3>
+          <p>Complete brand packages including logos, color palettes, fonts, business cards, and brand guidelines.</p>
+          <div class="price">From KSh 8,000</div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:40px;">
+        <a href="services.html" class="btn btn-outline">
+          <i class="fas fa-arrow-right"></i> See All Services
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= WHY CHOOSE US ======= -->
+  <section class="section" style="background:var(--white);">
+    <div class="container">
+      <div class="section-header fade-up">
+        <div class="tag">Why Dadris</div>
+        <h2>Why Clients <span>Choose Us</span></h2>
+        <p>We combine creativity with results-driven design to help your business grow.</p>
+      </div>
+      <div class="why-grid">
+        <div class="why-card fade-up"><div class="why-icon">⚡</div><h3>Fast Turnaround</h3><p>Most projects delivered in 24–72 hours without compromising quality.</p></div>
+        <div class="why-card fade-up"><div class="why-icon">💎</div><h3>Premium Quality</h3><p>Every design is crafted with attention to detail and professional standards.</p></div>
+        <div class="why-card fade-up"><div class="why-icon">🔄</div><h3>Unlimited Revisions</h3><p>We keep refining until you're 100% satisfied with the result.</p></div>
+        <div class="why-card fade-up"><div class="why-icon">📞</div><h3>Dedicated Support</h3><p>Direct communication via WhatsApp and email throughout your project.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= MINI PORTFOLIO ======= -->
+  <section class="section portfolio" style="background:var(--gray-50);">
+    <div class="container">
+      <div class="section-header fade-up">
+        <div class="tag">Our Work</div>
+        <h2>Recent <span>Projects</span></h2>
+        <p>A taste of our best work — web, graphics, branding & print.</p>
+      </div>
+      <div class="mini-portfolio-grid">
+        <div class="portfolio-item fade-up portfolio-wide" data-category="web">
+          <img src="images/cjpd.jpg" class="portfolio-item-img" alt="CJPD Kakamega Diocese" />
+          <div class="portfolio-overlay">
+            <div class="overlay-tag web-tag">Web Design</div>
+            <h3>CJPD Kakamega Diocese</h3>
+            <span>Official church diocese website</span>
+            <div class="overlay-actions">
+              <a href="https://davidmutula840-hash.github.io/CJPD-CDOK-website/" target="_blank" rel="noopener" class="portfolio-visit-btn">
+                <i class="fas fa-external-link-alt"></i> Visit Website
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-item fade-up" data-category="graphic">
+          <img src="images/gallery7.png" class="portfolio-item-img" alt="Church Flyer" />
+          <div class="portfolio-overlay">
+            <div class="overlay-tag graphic-tag">Flyer Design</div>
+            <h3>Glorious Gospel Church</h3>
+            <span>Church event flyer design</span>
+            <div class="overlay-actions">
+              <button class="portfolio-view-btn" onclick="openLightbox(this)" data-src="images/gallery7.png" data-title="Glorious Gospel Church Flyer">
+                <i class="fas fa-search-plus"></i> View Design
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-item fade-up portfolio-tall" data-category="branding">
+          <img src="images/gallery2.jpg" class="portfolio-item-img" alt="Branding Mockups" />
+          <div class="portfolio-overlay">
+            <div class="overlay-tag branding-tag">Branding</div>
+            <h3>Branding Mockups</h3>
+            <span>Full brand identity & mockup presentation</span>
+            <div class="overlay-actions">
+              <button class="portfolio-view-btn" onclick="openLightbox(this)" data-src="images/gallery2.jpg" data-title="Branding Mockups">
+                <i class="fas fa-search-plus"></i> View Design
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-item fade-up" data-category="web">
+          <img src="images/logo.jpg" class="portfolio-item-img" alt="Dadris Designers Academy" />
+          <div class="portfolio-overlay">
+            <div class="overlay-tag web-tag">Web Design</div>
+            <h3>Dadris Designers Academy</h3>
+            <span>Online learning platform for design students</span>
+            <div class="overlay-actions">
+              <a href="https://davidmutula840-hash.github.io/Dadris-Academy-/" target="_blank" rel="noopener" class="portfolio-visit-btn">
+                <i class="fas fa-external-link-alt"></i> Visit Website
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-item fade-up" data-category="branding">
+          <img src="images/dennoh.jpeg" class="portfolio-item-img" alt="Shop Branding" />
+          <div class="portfolio-overlay">
+            <div class="overlay-tag branding-tag">Shop Branding</div>
+            <h3>Dennoh Shop Branding</h3>
+            <span>Full shop brand identity design</span>
+            <div class="overlay-actions">
+              <button class="portfolio-view-btn" onclick="openLightbox(this)" data-src="images/dennoh.jpeg" data-title="Dennoh Shop Branding">
+                <i class="fas fa-search-plus"></i> View Design
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:48px;" class="fade-up">
+        <a href="portfolio.html" class="btn btn-primary">
+          <i class="fas fa-images"></i> View Full Portfolio
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIGHTBOX -->
+  <div id="portfolioLightbox" onclick="closeLightbox()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.93);z-index:9999;align-items:center;justify-content:center;flex-direction:column;padding:20px;">
+    <button onclick="closeLightbox()" style="position:absolute;top:20px;right:28px;background:none;border:none;color:#fff;font-size:2rem;cursor:pointer;line-height:1;">✕</button>
+    <img id="lightboxImg" src="" alt="" style="max-width:90vw;max-height:82vh;object-fit:contain;border-radius:12px;box-shadow:0 24px 80px rgba(0,0,0,0.8);" onclick="event.stopPropagation()" />
+    <p id="lightboxTitle" style="color:rgba(255,255,255,0.7);margin-top:16px;font-size:0.9rem;font-family:'DM Sans',sans-serif;"></p>
+  </div>
+  <script>
+    function openLightbox(btn) { event.stopPropagation(); const lb=document.getElementById('portfolioLightbox'); document.getElementById('lightboxImg').src=btn.dataset.src; document.getElementById('lightboxTitle').textContent=btn.dataset.title; lb.style.display='flex'; document.body.style.overflow='hidden'; }
+    function closeLightbox() { document.getElementById('portfolioLightbox').style.display='none'; document.body.style.overflow=''; }
+    document.addEventListener('keydown', e => { if(e.key==='Escape') closeLightbox(); });
+  </script>
+
+  <!-- ======= TESTIMONIALS ======= -->
+  <section class="section testimonials">
+    <div class="container">
+      <div class="section-header fade-up">
+        <div class="tag">Client Love</div>
+        <h2>What Our <span style="color:var(--green-light)">Clients Say</span></h2>
+        <p>Real words from real clients who trusted us with their brand.</p>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card fade-up">
+          <div class="stars">★★★★★</div>
+          <p>"Dadris Designers transformed our brand completely. The logo they created is exactly what we envisioned — modern, clean, and memorable."</p>
+          <div class="t-author"><div class="t-avatar">JK</div><div><div class="t-name">James Kamau</div><div class="t-role">CEO, TechStart Kenya</div></div></div>
+        </div>
+        <div class="testimonial-card fade-up">
+          <div class="stars">★★★★★</div>
+          <p>"Fast, professional, and affordable. They built our entire website in 3 days and it looks absolutely stunning. Highly recommended!"</p>
+          <div class="t-author"><div class="t-avatar">AM</div><div><div class="t-name">Amina Mohamed</div><div class="t-role">Owner, Amina's Boutique</div></div></div>
+        </div>
+        <div class="testimonial-card fade-up">
+          <div class="stars">★★★★★</div>
+          <p>"The best design team I've worked with. They understood my vision immediately and delivered beyond my expectations. Will definitely hire again."</p>
+          <div class="t-author"><div class="t-avatar">PO</div><div><div class="t-name">Peter Ochieng</div><div class="t-role">Marketing Director, SunRise Foods</div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= CTA BAND ======= -->
+  <div class="cta-band">
+    <h2>Ready to Elevate Your Brand?</h2>
+    <p>Let's create something amazing together. Get a free quote today — no strings attached.</p>
+    <div class="cta-band-btns">
+      <a href="contact.html" class="btn btn-white"><i class="fas fa-envelope"></i> Get a Free Quote</a>
+      <a href="https://wa.me/254745365756" target="_blank" class="btn btn-outline" style="border-color:rgba(255,255,255,0.5);color:#fff;"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
+    </div>
+  </div>
+
+  <!-- ======= FOOTER ======= -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="images/logo.jpg" alt="Logo" />
+            <div class="footer-logo-text">
+              <div class="name">DADRIS DESIGNERS</div>
+              <div class="slogan">Designs. Define Dadris</div>
+            </div>
+          </div>
+          <p>We create designs that define brands. Professional graphic design, logo creation, and web design services across Kenya.</p>
+          <div class="footer-social">
+            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="https://wa.me/254745365756" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="services.html">Graphic Design</a></li>
+            <li><a href="services.html">Web Design</a></li>
+            <li><a href="services.html">Logo Design</a></li>
+            <li><a href="services.html">Branding</a></li>
+            <li><a href="services.html">Social Media</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="tel:+254745365756"><i class="fas fa-phone" style="margin-right:8px;color:var(--green-light);"></i>0745 365 756</a></li>
+            <li><a href="mailto:dadrisdesigners@gmail.com"><i class="fas fa-envelope" style="margin-right:8px;color:var(--green-light);"></i>dadrisdesigners@gmail.com</a></li>
+            <li><a href="#"><i class="fas fa-map-marker-alt" style="margin-right:8px;color:var(--green-light);"></i>Kenya</a></li>
+          </ul>
+          <div style="margin-top:20px;">
+            <a href="client-portal/login.html" class="btn btn-outline" style="font-size:0.8rem;padding:10px 20px;">
+              <i class="fas fa-user"></i> Client Portal
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 DADRIS DESIGNERS. All rights reserved.</p>
+        <p class="credits">Designs. Define Dadris ✦</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ======= FLOATING BUTTONS ======= -->
+  <div class="floating-buttons">
+    <a href="https://wa.me/254745365756?text=Hello%20Dadris%20Designers!%20I%20need%20a%20design%20quote." target="_blank" class="float-btn float-whatsapp">
+      <i class="fab fa-whatsapp"></i>
+      <span class="tooltip">WhatsApp Us</span>
+    </a>
+    <a href="tel:+254745365756" class="float-btn float-call">
+      <i class="fas fa-phone"></i>
+      <span class="tooltip">Call Us</span>
+    </a>
+  </div>
+
+  <div id="toast" class="toast"></div>
+  <script src="js/main.js"></script>
+  <script src="chatbot.js"></script>
+
+  <!-- ======= PWA INSTALL LOGIC ======= -->
+  <script>
+    let pwaPrompt = null;
+    const pwaNavBtn    = document.getElementById('pwa-nav-btn');
+    const pwaMobileBtn = document.getElementById('pwa-mobile-btn');
+    const pwaPopup     = document.getElementById('pwa-popup');
+    const pwaIosHint   = document.getElementById('pwa-ios-hint');
+
+    function isStandalone() {
+      return window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
+    }
+
+    // ---- Android / Chrome / Edge — catch install prompt ----
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      pwaPrompt = e;
+
+      // Show the Install App button in navbar & mobile menu
+      pwaNavBtn.style.display    = 'flex';
+      pwaMobileBtn.style.display = 'block';
+
+      // Show popup banner after 3 seconds
+      if (!sessionStorage.getItem('pwa-dismissed')) {
+        setTimeout(() => {
+          if (pwaPrompt && !isStandalone()) {
+            pwaPopup.style.display = 'block';
+          }
+        }, 3000);
+      }
+    });
+
+    // ---- Trigger install ----
+    window.triggerPWAInstall = async function () {
+      if (!pwaPrompt) return;
+      pwaPrompt.prompt();
+      const { outcome } = await pwaPrompt.userChoice;
+      pwaPrompt = null;
+      pwaPopup.style.display     = 'none';
+      if (outcome === 'accepted') {
+        pwaNavBtn.style.display    = 'none';
+        pwaMobileBtn.style.display = 'none';
+      }
+    };
+
+    // ---- Dismiss popup ----
+    window.dismissPWAPopup = function () {
+      pwaPopup.style.display = 'none';
+      sessionStorage.setItem('pwa-dismissed', '1');
+    };
+
+    // ---- Hide everything once installed ----
+    window.addEventListener('appinstalled', () => {
+      pwaPrompt = null;
+      pwaNavBtn.style.display    = 'none';
+      pwaMobileBtn.style.display = 'none';
+      pwaPopup.style.display     = 'none';
+      const t = document.getElementById('toast');
+      if (t) { t.textContent = '✅ App installed! Find DADRIS DESIGNERS on your home screen.'; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),4000); }
+    });
+
+    // ---- iOS Safari hint ----
+    const isIos    = /iphone|ipad|ipod/i.test(navigator.userAgent);
+    const isSafari = /safari/i.test(navigator.userAgent) && !/chrome|crios|fxios/i.test(navigator.userAgent);
+    if (isIos && isSafari && !isStandalone() && !sessionStorage.getItem('ios-hint-shown')) {
+      sessionStorage.setItem('ios-hint-shown', '1');
+      setTimeout(() => { pwaIosHint.style.display = 'block'; }, 5000);
+    }
+
+    // ---- Register Service Worker ----
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/dadrisdesignerswebsite/sw.js', {
+          scope: '/dadrisdesignerswebsite/'
+        }).then(r => console.log('[PWA] SW registered:', r.scope))
+          .catch(e => console.warn('[PWA] SW failed:', e));
+      });
+    }
+  </script>
+
+</body>
+</html>
