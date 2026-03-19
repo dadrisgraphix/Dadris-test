@@ -1,12 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+ 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact Us — Dadris Designers</title>
+  <title>Design Services | Logo, Web & Graphic Design — Dadris Designers Kenya</title>
+  <meta name="description" content="Dadris Designers offers logo design, web design, graphic design, branding, social media graphics and print design in Kenya. Affordable prices, fast turnaround." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://davidmutula840-hash.github.io/dadrisdesignerswebsite/services.html" />
+  <meta property="og:title" content="Design Services — Dadris Designers Kenya" />
+  <meta property="og:description" content="Logo design, web design, graphic design, branding & print services in Kenya. Professional quality at affordable prices." />
+  <meta property="og:image" content="https://davidmutula840-hash.github.io/dadrisdesignerswebsite/images/logo.jpg" />
+  <meta property="og:url" content="https://davidmutula840-hash.github.io/dadrisdesignerswebsite/services.html" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="icon" href="images/logo.jpg" type="image/jpeg" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    .service-detail-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(300px,1fr)); gap: 32px; }
+    .service-detail-card {
+      background: #fff; border-radius: var(--radius-lg); overflow: hidden;
+      border: 1px solid var(--gray-200); transition: var(--transition);
+    }
+    .service-detail-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+    .service-card-header {
+      padding: 32px 28px; display: flex; align-items: center; gap: 16px;
+    }
+    .service-card-icon { font-size: 2.8rem; }
+    .service-card-header h3 { font-size: 1.3rem; margin-bottom: 4px; }
+    .service-card-header .price { color: var(--green); font-family: 'Bebas Neue',sans-serif; font-size: 1.3rem; }
+    .service-card-body { padding: 0 28px 28px; }
+    .service-card-body p { font-size: 0.9rem; color: var(--gray-600); margin-bottom: 16px; }
+    .service-list li { display: flex; align-items: center; gap: 10px; font-size: 0.88rem; padding: 6px 0; border-bottom: 1px solid var(--gray-100); }
+    .service-list li:last-child { border-bottom: none; }
+    .service-list li .dot { width: 7px; height: 7px; background: var(--green); border-radius: 50%; flex-shrink: 0; }
+    .process-steps { display: grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap: 24px; position: relative; }
+    .process-step { text-align: center; padding: 32px 20px; }
+    .step-num {
+      width: 60px; height: 60px; background: var(--green); color: #fff;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-family: 'Bebas Neue',sans-serif; font-size: 1.8rem;
+      margin: 0 auto 16px;
+    }
+    .process-step h3 { font-size: 1rem; margin-bottom: 8px; }
+    .process-step p  { font-size: 0.85rem; color: var(--gray-600); }
+  </style>
+
+  <!-- =====================================================
+     DADRIS DESIGNERS PWA — HEAD TAGS
+     Paste ALL of this inside <head> on EVERY page
+     ===================================================== -->
+
+<!-- PWA Manifest -->
+<link rel="manifest" href="/dadrisdesignerswebsite/manifest.json" />
+
+<!-- Theme color (browser chrome color on Android) -->
+<meta name="theme-color" content="#1a8c2e" />
+
+<!-- iOS specific -->
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="Dadris" />
+<link rel="apple-touch-icon" href="/dadrisdesignerswebsite/images/logo.jpg" />
+
+<!-- Android / general -->
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="application-name" content="DADRIS DESIGNERS" />
+
+<!-- Splash screen color -->
+<meta name="msapplication-TileColor" content="#1a8c2e" />
+<meta name="msapplication-TileImage" content="/dadrisdesignerswebsite/images/logo.jpg" />
+
+
 </head>
 <body>
 
@@ -22,10 +86,10 @@
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a href="services.html">Services</a></li>
+        <li><a href="services.html" class="active">Services</a></li>
         <li><a href="portfolio.html">Portfolio</a></li>
         <li><a href="pricing.html">Pricing</a></li>
-        <li><a href="contact.html" class="active">Contact</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
       <div class="nav-cta">
         <a href="client-portal/login.html" class="btn btn-outline" style="padding:10px 22px;font-size:0.85rem;">Client Login</a>
@@ -44,132 +108,212 @@
 
   <div class="page-banner">
     <div class="page-banner-content">
-      <div class="tag">Get In Touch</div>
-      <h1>Contact Us</h1>
-      <p>Ready to start a project or have a question? We'd love to hear from you.</p>
-      <div class="breadcrumb"><a href="index.html">Home</a> <span>›</span> <span>Contact</span></div>
+      <div class="tag">What We Offer</div>
+      <h1>Our Design Services</h1>
+      <p>Everything your brand needs to look professional, credible, and unforgettable.</p>
+      <div class="breadcrumb">
+        <a href="index.html">Home</a> <span>›</span> <span>Services</span>
+      </div>
     </div>
   </div>
 
-  <section class="section contact">
+  <!-- Services -->
+  <section class="section">
     <div class="container">
-      <div class="contact-grid">
-        <div class="contact-info fade-up">
-          <div class="tag" style="display:inline-block;background:var(--green);color:#fff;font-size:0.7rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:5px 14px;border-radius:50px;margin-bottom:14px;">Reach Out</div>
-          <h2>Let's Talk <span>Design</span></h2>
-          <p>Fill in the form and we'll get back to you within 2 hours during working hours. Or reach us directly below.</p>
+      <div class="section-header fade-up">
+        <div class="tag">All Services</div>
+        <h2>What We <span>Create For You</span></h2>
+        <p>Professional design services tailored to grow your business.</p>
+      </div>
+      <div class="service-detail-grid">
 
-          <div class="contact-item">
-            <div class="contact-icon" style="background:rgba(26,140,46,0.1);">📞</div>
+        <div class="service-detail-card fade-up">
+          <div class="service-card-header" style="background:linear-gradient(135deg,rgba(26,140,46,0.06),rgba(26,140,46,0.02));">
+            <div class="service-card-icon">🎨</div>
             <div>
-              <h4>Phone / WhatsApp</h4>
-              <a href="tel:+254745365756">0745 365 756</a>
+              <h3>Graphic Design</h3>
+              <div class="price">From KSh 1,500</div>
             </div>
           </div>
-          <div class="contact-item">
-            <div class="contact-icon" style="background:rgba(21,101,192,0.1);">✉️</div>
-            <div>
-              <h4>Email</h4>
-              <a href="mailto:dadrisdesigners@gmail.com">dadrisdesigners@gmail.com</a>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-icon" style="background:rgba(244,180,0,0.1);">📍</div>
-            <div>
-              <h4>Location</h4>
-              <p>Kenya (Available Nationwide)</p>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-icon" style="background:rgba(204,31,31,0.1);">⏰</div>
-            <div>
-              <h4>Working Hours</h4>
-              <p>Mon – Sat: 8:00 AM – 8:00 PM<br>Sun: 10:00 AM – 5:00 PM</p>
-            </div>
-          </div>
-
-          <div style="margin-top:32px;">
-            <p style="font-weight:700;margin-bottom:14px;font-size:0.9rem;">Connect on Social</p>
-            <div style="display:flex;gap:12px;">
-              <a href="#" class="social-icon" style="background:rgba(0,0,0,0.06);border:1px solid var(--gray-200);color:var(--black);"><i class="fab fa-facebook-f"></i></a>
-              <a href="#" class="social-icon" style="background:rgba(0,0,0,0.06);border:1px solid var(--gray-200);color:var(--black);"><i class="fab fa-instagram"></i></a>
-              <a href="https://wa.me/254745365756" class="social-icon" style="background:#25d366;color:#fff;border-color:#25d366;"><i class="fab fa-whatsapp"></i></a>
+          <div class="service-card-body">
+            <p>Eye-catching graphics for all your print and digital marketing needs. We create designs that communicate and convert.</p>
+            <ul class="service-list">
+              <li><span class="dot"></span> Flyers & Posters</li>
+              <li><span class="dot"></span> Social Media Graphics</li>
+              <li><span class="dot"></span> Banners & Billboards</li>
+              <li><span class="dot"></span> Business Cards</li>
+              <li><span class="dot"></span> Brochures & Catalogues</li>
+              <li><span class="dot"></span> T-Shirt & Merchandise Design</li>
+            </ul>
+            <div style="margin-top:20px;">
+              <a href="contact.html" class="btn btn-primary" style="width:100%;justify-content:center;">Order Now</a>
             </div>
           </div>
         </div>
 
-        <div class="contact-form-wrap fade-up">
-          <div class="contact-form">
-            <h3 style="margin-bottom:24px;">Send Us a Message</h3>
-            <form id="contactForm">
-              <div class="form-row">
-                <div class="form-group">
-                  <label>Your Name *</label>
-                  <input type="text" placeholder="John Kamau" required />
-                </div>
-                <div class="form-group">
-                  <label>Phone / WhatsApp *</label>
-                  <input type="tel" placeholder="0712 345 678" required />
-                </div>
-              </div>
-              <div class="form-group">
-                <label>Email Address</label>
-                <input type="email" placeholder="john@example.com" />
-              </div>
-              <div class="form-group">
-                <label>Service Needed *</label>
-                <select required>
-                  <option value="">Select a service...</option>
-                  <option>Logo Design</option>
-                  <option>Graphic Design (Flyer, Poster, etc.)</option>
-                  <option>Web Design</option>
-                  <option>Branding & Identity</option>
-                  <option>Social Media Design</option>
-                  <option>Print & Packaging</option>
-                  <option>Other / Not Sure</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label>Project Budget (KSh)</label>
-                <select>
-                  <option value="">Select your budget range...</option>
-                  <option>Under KSh 5,000</option>
-                  <option>KSh 5,000 – 15,000</option>
-                  <option>KSh 15,000 – 50,000</option>
-                  <option>KSh 50,000+</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label>Tell Us About Your Project *</label>
-                <textarea placeholder="Describe what you need. The more detail you give, the better we can help you!" required></textarea>
-              </div>
-              <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;font-size:1rem;padding:16px;">
-                <i class="fas fa-paper-plane"></i> Send Message
-              </button>
-            </form>
+        <div class="service-detail-card fade-up">
+          <div class="service-card-header" style="background:linear-gradient(135deg,rgba(21,101,192,0.06),rgba(21,101,192,0.02));">
+            <div class="service-card-icon">💻</div>
+            <div>
+              <h3>Web Design</h3>
+              <div class="price">From KSh 15,000</div>
+            </div>
           </div>
+          <div class="service-card-body">
+            <p>Beautiful, fast, and responsive websites that work on all devices and help you attract more customers online.</p>
+            <ul class="service-list">
+              <li><span class="dot"></span> Business Websites</li>
+              <li><span class="dot"></span> E-Commerce Stores</li>
+              <li><span class="dot"></span> Portfolio Websites</li>
+              <li><span class="dot"></span> Landing Pages</li>
+              <li><span class="dot"></span> Blog & News Sites</li>
+              <li><span class="dot"></span> Website Redesign</li>
+            </ul>
+            <div style="margin-top:20px;">
+              <a href="contact.html" class="btn btn-primary" style="width:100%;justify-content:center;">Get a Quote</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="service-detail-card fade-up">
+          <div class="service-card-header" style="background:linear-gradient(135deg,rgba(244,180,0,0.08),rgba(244,180,0,0.02));">
+            <div class="service-card-icon">✏️</div>
+            <div>
+              <h3>Logo Design</h3>
+              <div class="price">From KSh 2,500</div>
+            </div>
+          </div>
+          <div class="service-card-body">
+            <p>A unique, professional logo that captures your brand identity and makes you instantly recognizable in the market.</p>
+            <ul class="service-list">
+              <li><span class="dot"></span> Custom Logo Creation</li>
+              <li><span class="dot"></span> Multiple Concept Options</li>
+              <li><span class="dot"></span> Unlimited Revisions</li>
+              <li><span class="dot"></span> All File Formats (PNG, SVG, PDF)</li>
+              <li><span class="dot"></span> Transparent Background</li>
+              <li><span class="dot"></span> Full Copyright Ownership</li>
+            </ul>
+            <div style="margin-top:20px;">
+              <a href="contact.html" class="btn btn-primary" style="width:100%;justify-content:center;">Order Logo</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="service-detail-card fade-up">
+          <div class="service-card-header" style="background:linear-gradient(135deg,rgba(204,31,31,0.06),rgba(204,31,31,0.02));">
+            <div class="service-card-icon">🏷️</div>
+            <div>
+              <h3>Branding & Identity</h3>
+              <div class="price">From KSh 8,000</div>
+            </div>
+          </div>
+          <div class="service-card-body">
+            <p>Complete brand identity packages that give your business a cohesive, professional look across all touchpoints.</p>
+            <ul class="service-list">
+              <li><span class="dot"></span> Logo + Brand Colors</li>
+              <li><span class="dot"></span> Brand Style Guide</li>
+              <li><span class="dot"></span> Business Card Design</li>
+              <li><span class="dot"></span> Letterhead & Envelope</li>
+              <li><span class="dot"></span> Social Media Kit</li>
+              <li><span class="dot"></span> Email Signature</li>
+            </ul>
+            <div style="margin-top:20px;">
+              <a href="contact.html" class="btn btn-primary" style="width:100%;justify-content:center;">Start Branding</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="service-detail-card fade-up">
+          <div class="service-card-header" style="background:linear-gradient(135deg,rgba(26,140,46,0.06),rgba(244,180,0,0.04));">
+            <div class="service-card-icon">📱</div>
+            <div>
+              <h3>Social Media Design</h3>
+              <div class="price">From KSh 3,000</div>
+            </div>
+          </div>
+          <div class="service-card-body">
+            <p>Consistent, attractive social media content designed to grow your audience and engagement across platforms.</p>
+            <ul class="service-list">
+              <li><span class="dot"></span> Facebook & Instagram Posts</li>
+              <li><span class="dot"></span> Story Templates</li>
+              <li><span class="dot"></span> Profile Banners & Covers</li>
+              <li><span class="dot"></span> Monthly Content Packages</li>
+              <li><span class="dot"></span> Highlight Icons</li>
+              <li><span class="dot"></span> Ad Creatives</li>
+            </ul>
+            <div style="margin-top:20px;">
+              <a href="contact.html" class="btn btn-primary" style="width:100%;justify-content:center;">Order Package</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="service-detail-card fade-up">
+          <div class="service-card-header" style="background:linear-gradient(135deg,rgba(21,101,192,0.06),rgba(26,140,46,0.04));">
+            <div class="service-card-icon">🖨️</div>
+            <div>
+              <h3>Print & Packaging</h3>
+              <div class="price">From KSh 2,000</div>
+            </div>
+          </div>
+          <div class="service-card-body">
+            <p>Print-ready designs that look great both on screen and in print — from packaging to signage.</p>
+            <ul class="service-list">
+              <li><span class="dot"></span> Product Packaging</li>
+              <li><span class="dot"></span> Labels & Stickers</li>
+              <li><span class="dot"></span> Menu Design</li>
+              <li><span class="dot"></span> Event Programs</li>
+              <li><span class="dot"></span> Signage & Banners</li>
+              <li><span class="dot"></span> Pull-Up Banners</li>
+            </ul>
+            <div style="margin-top:20px;">
+              <a href="contact.html" class="btn btn-primary" style="width:100%;justify-content:center;">Order Now</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section class="section" style="background:var(--gray-50);">
+    <div class="container">
+      <div class="section-header fade-up">
+        <div class="tag">How It Works</div>
+        <h2>Our <span>Simple Process</span></h2>
+        <p>Getting your design project done is easy. Here's how we work together.</p>
+      </div>
+      <div class="process-steps">
+        <div class="process-step fade-up">
+          <div class="step-num">1</div>
+          <h3>Contact Us</h3>
+          <p>Reach out via WhatsApp, email, or the contact form. Tell us about your project.</p>
+        </div>
+        <div class="process-step fade-up">
+          <div class="step-num">2</div>
+          <h3>Brief & Quote</h3>
+          <p>We understand your needs and send you a detailed quote and timeline.</p>
+        </div>
+        <div class="process-step fade-up">
+          <div class="step-num">3</div>
+          <h3>Design & Review</h3>
+          <p>We create your design. You review it and request any changes.</p>
+        </div>
+        <div class="process-step fade-up">
+          <div class="step-num">4</div>
+          <h3>Deliver Files</h3>
+          <p>Once approved and paid, we send all final files in all formats you need.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Quick Action Buttons -->
-  <div style="background:var(--gray-50);padding:60px 24px;text-align:center;">
-    <h2 style="margin-bottom:12px;">Prefer a Quick Chat?</h2>
-    <p style="color:var(--gray-600);margin-bottom:32px;max-width:500px;margin-left:auto;margin-right:auto;">
-      Skip the form and reach us directly. We respond fast!
-    </p>
-    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
-      <a href="https://wa.me/254745365756?text=Hello!%20I%20need%20a%20design%20quote." target="_blank" class="btn btn-primary" style="background:#25d366;border-color:#25d366;font-size:1.05rem;padding:16px 36px;">
-        <i class="fab fa-whatsapp"></i> WhatsApp Now
-      </a>
-      <a href="tel:+254745365756" class="btn btn-outline" style="font-size:1.05rem;padding:16px 36px;">
-        <i class="fas fa-phone"></i> Call 0745 365 756
-      </a>
-      <a href="mailto:dadrisdesigners@gmail.com" class="btn btn-outline" style="font-size:1.05rem;padding:16px 36px;">
-        <i class="fas fa-envelope"></i> Send Email
-      </a>
-    </div>
+  <div style="text-align:center;padding:60px 24px;background:linear-gradient(135deg,#0a1a0e,#0d2b14);">
+    <h2 style="color:#fff;margin-bottom:12px;">Ready to Start Your Project?</h2>
+    <p style="color:rgba(255,255,255,0.65);margin-bottom:28px;">Let's create something amazing. Contact us today for a free consultation.</p>
+    <a href="contact.html" class="btn btn-primary" style="font-size:1rem;">
+      <i class="fas fa-paper-plane"></i> Get a Free Quote
+    </a>
   </div>
 
   <footer>
@@ -190,24 +334,33 @@
             <a href="https://wa.me/254745365756" class="social-icon"><i class="fab fa-whatsapp"></i></a>
           </div>
         </div>
-        <div class="footer-col"><h4>Pages</h4><ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="portfolio.html">Portfolio</a></li>
-          <li><a href="pricing.html">Pricing</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul></div>
-        <div class="footer-col"><h4>Services</h4><ul>
-          <li><a href="services.html">Graphic Design</a></li>
-          <li><a href="services.html">Web Design</a></li>
-          <li><a href="services.html">Logo Design</a></li>
-          <li><a href="services.html">Branding</a></li>
-        </ul></div>
-        <div class="footer-col"><h4>Contact</h4><ul>
-          <li><a href="tel:+254745365756">📞 0745 365 756</a></li>
-          <li><a href="mailto:dadrisdesigners@gmail.com">✉️ dadrisdesigners@gmail.com</a></li>
-        </ul></div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#">Graphic Design</a></li>
+            <li><a href="#">Web Design</a></li>
+            <li><a href="#">Logo Design</a></li>
+            <li><a href="#">Branding</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="tel:+254745365756">📞 0745 365 756</a></li>
+            <li><a href="mailto:dadrisdesigners@gmail.com">✉️ dadrisdesigners@gmail.com</a></li>
+          </ul>
+        </div>
       </div>
       <div class="footer-bottom">
         <p>© 2025 DADRIS DESIGNERS. All rights reserved.</p>
@@ -226,5 +379,9 @@
   </div>
   <div id="toast" class="toast"></div>
   <script src="js/main.js"></script>
+
+  
+  <script src="chatbot.js"></script>
+  <script src="/dadrisdesignerswebsite/pwa-init.js"></script>
 </body>
 </html>
